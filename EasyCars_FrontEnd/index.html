@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EasyCarRental</title>
+    <link href="assests/lib/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assests/css/home.css" rel="stylesheet">
+    <link href="assests/css/guest.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+</head>
+<style>
+    #guestUserPage{
+        display: none;
+    }
+    #driverPage{
+        display: none;
+    }
+    #adminPage{
+        display: none;
+    }
+    #registeredUserPage{
+        display: none;
+    }
+</style>
+<body>
+<!-- /////////////////////////////////  HOME PAGE START  ////////////////////////////////////////////////////////////-->
+<section class="container-fluid" id="homePage">
+    <div class="row mrow">
+        <div class="col-md-6">
+            <div class="row h">
+                <h1 style="font-family: 'Poiret One', cursive;"><b> ~ Easy Cars  Rental System ~</b></h1>
+            </div>
+            <div class="row b">
+                <button type="button" class="btn btn-outline-dark btn-md btn-block " data-toggle="modal" data-target="#AdminModal" id="btn-adminLogin">Administrator</button>
+                <button type="button" class="btn btn-outline-dark btn-md btn-block"  id="btn-guest">Guest User</button>
+                <button type="button" class="btn btn-outline-dark btn-md btn-block" data-toggle="modal" data-target="#UserLoginModal" id="btn-userLogin">User Login</button>
+                <button type="button" class="btn btn-outline-dark btn-md btn-block" data-toggle="modal" data-target="#DriverLoginModal" id="btn-driverLogin">Driver Login</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img src="assests/pictures/carHome.webp" id="himg">
+        </div>
+    </div>
+    <div class="srow">
+        <h5 style="font-family: 'Poiret One', cursive;"><b><i>We Provide You The Best Car Services In Town , Rent Your Car Now .</i></b></h5>
+    </div>
+</section>
+<!--        Administrator Model Start-->
+<div class="modal fade" id="AdminModal" tabindex="-1" aria-labelledby="adminModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="adminModalLabel" style="font-family: 'Open Sans Condensed', sans-serif;"><b>Log In As Administrator</b></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <label style="font-family: 'Open Sans Condensed', sans-serif;">Admin Username</label>
+                    <input type="text" class="form-control" placeholder="" name="Username" id="AdminUsername">
+                    <label style="font-family: 'Open Sans Condensed', sans-serif;">Admin Password</label>
+                    <input type="password" class="form-control" placeholder="" name="Password" id="AdminPassword">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal" style="font-family: 'Open Sans Condensed', sans-serif;">Forgot Log In Datails</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" style="font-family: 'Open Sans Condensed', sans-serif;">Close</button>
+                <button type="button" class="btn btn-dark" id="LoginAdmin" style="font-family: 'Open Sans Condensed', sans-serif;">Log In</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--        Administrator Model End-->
+<!--        UserLogin Model Start-->
+<div class="modal fade" id="UserLoginModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="userModalLabel" style="font-family: 'Open Sans Condensed', sans-serif;"><b>Log In As User</b></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="userLoginForm">
+                    <label style="font-family: 'Open Sans Condensed', sans-serif;">Username</label>
+                    <input type="text" class="form-control" placeholder="" name="Username" id="Username">
+                    <label style="font-family: 'Open Sans Condensed', sans-serif;">Password</label>
+                    <input type="password" class="form-control" placeholder="" name="Password" id="Password">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal" style="font-family: 'Open Sans Condensed', sans-serif;">Forgot Log In Datails</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" style="font-family: 'Open Sans Condensed', sans-serif;">Close</button>
+                <button type="button" class="btn btn-dark" id="LoginUser" style="font-family: 'Open Sans Condensed', sans-serif;">Log In</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--        UserLogin Model End-->
+<!--        Driver Model Start-->
+<div class="modal fade" id="DriverLoginModal" tabindex="-1" aria-labelledby="driverModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="driverModalLabel" style="font-family: 'Open Sans Condensed', sans-serif;"><b>Log In As Driver</b></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="driverLoginForm">
+                    <label style="font-family: 'Open Sans Condensed', sans-serif;">Username</label>
+                    <input type="text" class="form-control" placeholder="" name="Username" id="DriverUsername">
+                    <label style="font-family: 'Open Sans Condensed', sans-serif;">Password</label>
+                    <input type="password" class="form-control" placeholder="" name="Password" id="DriverPassword">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal" style="font-family: 'Open Sans Condensed', sans-serif;">Forgot Log In Datails</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" style="font-family: 'Open Sans Condensed', sans-serif;">Close</button>
+                <button type="button" class="btn btn-dark" id="LoginDriver" style="font-family: 'Open Sans Condensed', sans-serif;">Log In</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--        Driver Model End-->
+<!-- /////////////////////////////////  HOME PAGE ENDS  /////////////////////////////////////////////////////////////-->
+<!-- /////////////////////////////////  ADMIN PAGE START  ///////////////////////////////////////////////////////////-->
+<section class="container-fluid" id="adminPage">
+    <div class="row">
+        <div class="fixed-top">
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-dark p-4">
+                    <div class="row" style="margin: 10px;">
+                        <h6 class="text-white h4" style="font-family: 'Poiret One', cursive;">Easy Cars ~ Administrator Control</h6>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"><button type="button" class="btn btn-outline-light btn-block" id="btn-dashboard">DashBoard</button></div>
+                        <div class="col-md-2"><button type="button" class="btn btn-outline-light btn-block" id="btn-carmanage">Manage Cars</button></div>
+                        <div class="col-md-2"><button type="button" class="btn btn-outline-light btn-block" id="btn-usermanage">Manage Users</button></div>
+                        <div class="col-md-2"><button type="button" class="btn btn-outline-light btn-block" id="btn-drivermanage">Manage Drivers</button></div>
+                        <div class="col-md-2"><button type="button" class="btn btn-outline-light btn-block" id="btn-schedulemanage">Schedule</button></div>
+                        <div class="col-md-2"><button type="button" class="btn btn-outline-light btn-block" id="btn-requestmanage">Requests <span class="badge badge-light">4</span></button></div>
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-md-2"><button type="button" class="btn btn-outline-light btn-block" id="btn-maintanence-manage" >Maintainence</button></div>
+                        <div class="col-md-2"><button type="button" class="btn btn-outline-light btn-block" id="btn-paymentmanage">Payment</button></div>
+                        <div class="col-md-2"><button type="button" class="btn btn-outline-light btn-block" id="btn-incomemanage">Income</button></div>
+                        <div class="col-md-2"><button type="button" class="btn btn-outline-light btn-block" id="btn-returnback">Return</button></div>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-dark bg-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row" style=" margin:30px; margin-top: 100px;" id="dashboard">
+            <div class="row">
+                <div class="card-columns">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">No.Of Registered Users :</h5>
+                            <p class="card-text">210</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">No.Of Occupied Drivers :</h5>
+                            <p class="card-text">39</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">No.Of Available Drivers :</h5>
+                            <p class="card-text">39</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="assests/pictures/carDash.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Total Bookings For The Day :</h5>
+                            <p class="card-text">86 Bookings</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                    <div class="card bg-secondary text-white text-center p-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Active Bookings For The Day :</h5>
+                            <p class="card-text">6 Bookings</p>
+                        </div>
+                    </div>
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">No.Of Reserved Cars :</h5>
+                            <p class="card-text">20</p>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">No.Of Available Cars :</h5>
+                            <p class="card-text">60</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">Cars need Maintainence :</h5>
+                            <p class="card-text">20</p>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Cars Under Maintainence :</h5>
+                            <p class="card-text">60</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="row" style=" margin:30px; margin-top: 100px;" id="car-manage">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-2">
+                            <label class="col-form-label col-form-label-sm">Register No</label>
+                            <input type="text" class="form-control form-control-sm" id="vehicleRegNo">
+                            <small class="form-text text-muted">Enter Register No and press Enter to load vehicle </small>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label class="col-form-label col-form-label-sm">Brand</label>
+                            <input type="text" class="form-control form-control-sm" id="vehiclebrand">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label class="col-form-label col-form-label-sm">Type Select</label>
+                            <select class="form-control form-control-sm" id="vehicleType">
+                                <option>Luxury</option>
+                                <option>Premium</option>
+                                <option>General</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label class="col-form-label col-form-label-sm">No Of Passengers</label>
+                            <input type="text" class="form-control form-control-sm" id="passengers">
+                        </div>
+                        <div class=" form-group col-md-3 custom-file" style="margin-top: 30px;">
+                            <input type="file" class="custom-file-input form-control form-control-sm" id="vehicleimg">
+                            <label class="custom-file-label col-form-label col-form-label-sm" for="vehicleimg">Choose Image</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label class="col-form-label col-form-label-sm">Transmission Type</label>
+                            <select class="form-control form-control-sm" id="transmissionType">
+                                <option>Auto</option>
+                                <option>Mannual</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label class="col-form-label col-form-label-sm">Fuel Type</label>
+                            <select class="form-control form-control-sm" id="fuelType">
+                                <option>Petrol</option>
+                                <option>Disel</option>
+                                <option>Electric</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label class="col-form-label col-form-label-sm">Milage</label>
+                            <input type="text" class="form-control form-control-sm" id="milage">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label class="col-form-label col-form-label-sm">Price per Extra KM</label>
+                            <input type="text" class="form-control form-control-sm" id="priceperextrakm">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-2">
+                            <label class="col-form-label col-form-label-sm">Daily Rate</label>
+                            <input type="text" class="form-control form-control-sm" id="dailyrate">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label class="col-form-label col-form-label-sm">Free KM for a day</label>
+                            <input type="text" class="form-control form-control-sm" id="freekmforday">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label class="col-form-label col-form-label-sm">Monthy Rate</label>
+                            <input type="text" class="form-control form-control-sm" id="monthlyrate">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label class="col-form-label col-form-label-sm">Free KM for a month</label>
+                            <input type="text" class="form-control form-control-sm" id="freekmformonth">
+                        </div>
+                        <div class="form-group col-md-1"></div>
+                        <div class="form-group col-md-3" style="margin-top: 30px;">
+                            <button class="btn btn-outline-dark btn-sm" type="button" id="btn-addCar">Add Car</button>
+                            <button class="btn btn-outline-info btn-sm" type="button" id="btn-updateCar">Update Car</button>
+                            <button class="btn btn-outline-danger btn-sm" type="button" id="btn-deleteCar">Delete Car</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <table class="table table-striped table-hover table-sm" style="margin-top: 5px;">
+                    <thead>
+                    <tr>
+                        <th scope="col">Reg No</th>
+                        <th scope="col">Brand</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Passenger</th>
+                        <th scope="col">Transm</th>
+                        <th scope="col">Fuel</th>
+                        <th scope="col">Daily.R</th>
+                        <th scope="col">Free KM.Day</th>
+                        <th scope="col">Monthly.R</th>
+                        <th scope="col">Free KM.Month</th>
+                        <th scope="col">Per extra KM</th>
+                        <th scope="col">Milage</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tblCars">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+
+    <div class="row" style=" margin:30px; margin-top: 100px;" id="user-manage">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label>Identity No :</label>
+                            <input type="text" class="form-control" id="userid">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Lisence No :</label>
+                            <input type="text" class="form-control" id="userlisence">
+                        </div>
+                        <div class="form-group col-md-2">
+                        <button class="btn btn-outline-danger btn-block" type="button" id="btn-searchUser" style="margin-top: 30px;">Search</button>
+                    </div>
+                        <div class="form-group col-md-2">
+                            <button class="btn btn-outline-dark btn-block" type="button" id="btn-loadUsers" style="margin-top: 30px;">Load All Users</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Identity No</th>
+                        <th scope="col">Lisence No</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Contact</th>
+                        <th scope="col">E-Mail</th>
+                        <th scope="col">Username</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tblUser">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+    <div class="row" style=" margin:30px; margin-top: 100px;" id="driver-manage">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+                <form>
+                    <div class="form-row">
+                        <label>Driver Id</label>
+                        <input type="text" class="form-control" id="driverid">
+                    </div>
+                    <div class="form-row">
+                        <label>Driver Name</label>
+                        <input type="text" class="form-control" id="drivername">
+                    </div>
+                    <div class="form-row">
+                        <label>Driver Contact</label>
+                        <input type="text" class="form-control" id="drivercontact">
+                    </div>
+                    <div class="form-row">
+                        <label>Driver Username</label>
+                        <input type="text" class="form-control" id="driveruname">
+                    </div>
+                    <div class="form-row">
+                        <label>Driver Password</label>
+                        <input type="password" class="form-control" id="driverpass">
+                    </div>
+                    <div class="form-row" style="margin-top: 20px;">
+                        <button class="btn btn-outline-dark" type="button" id="btn-addDriver" style="margin-right: 10px;">Register</button>
+                        <button class="btn btn-outline-info " type="button" id="btn-updateDriver" style="margin-right: 10px;">Update</button>
+                        <button class="btn btn-outline-danger " type="button" id="btn-delereDriver" style="margin-right: 10px;">Delete</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <form>
+                            <input type="text" class="form-control form-control-sm" placeholder="Search By Driver ID :" id="driversearch">
+                        </form>
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-outline-dark btn-block btn-sm" type="button" id="btn-searchDriver" >Search</button>
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-outline-secondary btn-block btn-sm" type="button" id="btn-loadDriver">Load All</button>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 10px;">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Driver ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Contact</th>
+                            <th scope="col">Username</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tblDriver">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+    <div class="row" style=" margin:30px; margin-top: 100px;" id="schedule-manage">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="row">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label>Vehicle ID :</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label>Customer ID :</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label>Driver ID :</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <button class="btn btn-outline-danger btn-block" type="button" id="btn-searchSchedule" style="margin-top: 30px;">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="row">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">PickUp Date</th>
+                            <th scope="col">Vehicle ID</th>
+                            <th scope="col">User ID</th>
+                            <th scope="col">Driver ID</th>
+                            <th scope="col">Return Date</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tblSchedule">
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+    <div class="row" style=" margin:30px; margin-top: 100px;" id="request-manage">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-10">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label>Driver ID</label>
+                                    <input type="text" class="form-control" id="did">
+                                </div>
+                                <div class="form-group col-md-3"  style="margin-top: 30px;">
+                                    <button class="btn btn-outline-dark btn-block" type="button" id="btn-acceptRequest" style="margin-right: 10px;">Accept</button>
+                                </div>
+                                <div class="form-group col-md-3"  style="margin-top:30px;">
+                                    <button class="btn btn-outline-danger btn-block " type="button" id="btn-denyRequest" style="margin-right: 10px;">Deny</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+                <div class="row">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Request ID</th>
+                            <th scope="col">User ID</th>
+                            <th scope="col">Car ID</th>
+                            <th scope="col">Viewer</th>
+                            <th scope="col">PickUp Date</th>
+                            <th scope="col">Return Date</th>
+                            <th scope="col">Driver</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tblRequest">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+    <div class="row" style=" margin:30px; margin-top: 100px;" id="maintainance-manage">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="row" style="margin-top: 30px;">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label>Maintainence ID</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>Car No</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>Return Date</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Reason</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <button class="btn btn-outline-dark btn-block" type="button" id="btn-addMaintainence" style="margin-top: 30px;">Add</button>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <button class="btn btn-outline-secondary btn-block" type="button" id="btn-updateMaintainence" style="margin-top: 30px;">Update</button>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <button class="btn btn-outline-danger btn-block" type="button" id="btn-deleteMaintainence" style="margin-top: 30px;">Delete</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <br>
+                <div class="row">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Maintainence ID</th>
+                            <th scope="col">Car No</th>
+                            <th scope="col">Return Date</th>
+                            <th scope="col">Reason</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tblMaintainence">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+    <div class="row" style=" margin:30px; margin-top: 100px;" id="payment-manage">
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="row">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label>Booking ID</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>User ID</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>Car No</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <form>
+                            <div class="form-row">
+                                <label>Allocated Payement</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label>Extra KM</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>Price per Extra KM</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>Driver Payment</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label>Total Payment</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-6" style="margin-top: 30px; padding-left: 10px;">
+                        <h4 style="font-family: 'Poiret One', cursive;">Waiver Payment</h4>
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label>Amount Paid</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>Loses</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label>Amount Returned</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group col-md-4">
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-md-4">
+                        <button class="btn btn-secondary btn-block" type="button" id="btn-paymentTable">All Payments</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-outline-dark btn-block" type="button" id="btn-pay">Make Payment</button>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+    <div class="row" style=" margin:30px; margin-top: 100px;" id="income-manage">
+        <h1>income</h1>
+    </div>
+</section>
+<!-- /////////////////////////////////  ADMINPAGE ENDS  /////////////////////////////////////////////////////////////-->
+<!-- /////////////////////////////////  GUEST PAGE START  ///////////////////////////////////////////////////////////-->
+<section class="container-fluid" id="guestUserPage">
+    <div class="row bg-dark">
+        <div class="col-md-1"></div>
+        <div class="col-md-3 cl">
+            <h2 style="font-family: 'Poiret One', cursive; color: lightgray"><b> Easy Cars Rental</b></h2>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2 cl">
+            <button class="btn btn-outline-light btn-block" type="button" id="btn-viewcars">View Cars</button>
+        </div>
+        <div class="col-md-2 cl">
+            <button class="btn btn-outline-light btn-block" type="button" id="btn-register">Register Now</button>
+        </div>
+        <div class="col-md-2 cl">
+            <button class="btn btn-outline-light btn-block" type="button" id="btn-return">Return</button>
+        </div>
+    </div>
+    <div class="row" id="carview">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-1"><h4 style="font-family: 'Open Sans Condensed', sans-serif; margin-top: 60px;">Sort By :</h4></div>
+            <div class="col-md-9" style="margin-top: 20px;">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-2">
+                            <label>No.Of Passengers</label>
+                            <input type="text" class="form-control" id="passsearch">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label>Transmission Type</label>
+                            <select class="form-control" id="transsearch">
+                                <option>Auto</option>
+                                <option>Mannual</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label>Car Type</label>
+                            <select class="form-control" id="typesearch">
+                                <option>Luxury</option>
+                                <option>Premium</option>
+                                <option>General</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label>Fuel Type</label>
+                            <select class="form-control" id="fuelsearch">
+                                <option>Petrol</option>
+                                <option>Disel</option>
+                                <option>Electric</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <button class="btn btn-outline-danger btn-block" type="button" id="btn-sort" style="margin-top: 30px;">Search</button>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <button class="btn btn-outline-dark btn-block" type="button" id="btn-all" style="margin-top: 30px;">All Cars</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <hr>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-2"></div>
+            <div class="col-md-9">
+<!--                guest car veiw start -->
+                <section id="viewCars">
+                    <div id="test"></div>
+                </section>
+<!--                guest car view ends-->
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+    <div class="row" id="register">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <form>
+                    <div class="form-row" style="margin-top: 40px;">
+                        <div class="form-group col-md-6">
+                            <label>Identity Card No</label>
+                            <input type="text" class="form-control" id="uid">
+                            <small class="form-text text-muted">We'll never share your identity with anyone else.</small>
+                        </div>
+                        <div class="custom-file col-md-6 form-group" style="margin-top: 32px;">
+                            <input type="file" class="custom-file-input" id="Uidcopy">
+                            <label class="custom-file-label" for="Uidcopy">Attach a copy of your id</label>
+                        </div>
+                    </div>
+                    <div class="form-row" >
+                        <div class="form-group col-md-6">
+                            <label>Lisence No</label>
+                            <input type="text" class="form-control" id="UlisenceNo">
+                            <small class="form-text text-muted">We'll never share your lisence with anyone else.</small>
+                        </div>
+                        <div class="custom-file col-md-6 form-group" style="margin-top: 32px;">
+                            <input type="file" class="custom-file-input" id="Ulisencecopy">
+                            <label class="custom-file-label" for="Ulisencecopy">Attach a copy of your lisence</label>
+                        </div>
+                    </div>
+                    <div class="form-row" >
+                        <div class="form-group col-md-4">
+                            <label>Full Name</label>
+                            <input type="text" class="form-control" id="uname">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Contact</label>
+                            <input type="text" class="form-control" id="ucontact">
+                            <small class="form-text text-muted">We'll never share your contact with anyone else.</small>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>E-Mail</label>
+                            <input type="email" class="form-control" id="uemail">
+                            <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                    </div>
+                    <div class="form-row" >
+                        <div class="form-group col-md-4">
+                            <label>UserName</label>
+                            <input type="text" class="form-control" id="uusername">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Password</label>
+                            <input type="password" class="form-control" id="upassword">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Confirm Password</label>
+                            <input type="password" class="form-control" id="uconpassword">
+                        </div>
+                    </div>
+                    <div class="form-row" style="margin-top: 20px;">
+                        <div class="form-group col-md-3">
+                            <button class="btn btn-outline-danger btn-block" type="reset">Reset</button>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <button class="btn btn-outline-dark btn-block" type="button" id="btn-user-register">Register</button>
+                        </div>
+                        <div class="form-group col-md-3"></div>
+                        <div class="form-group col-md-3"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+
+</section>
+<!-- //////////////////////////////////////  GUEST PAGE ENDS  ///////////////////////////////////////////////////////-->
+<!-- ///////////////////////////////////  REGISTERED USER PAGE STARTS ///////////////////////////////////////////////-->
+<section class="container-fluid" id="registeredUserPage">
+    <div class="row bg-dark">
+        <div class="col-md-1"></div>
+        <div class="col-md-3 cl">
+            <h2 style="font-family: 'Poiret One', cursive; color: lightgray"><b> Easy Cars Rental</b></h2>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2 cl">
+            <button class="btn btn-outline-light btn-block" type="button" id="btn-cars">View Cars</button>
+        </div>
+        <div class="col-md-2 cl">
+            <button class="btn btn-outline-light btn-block" type="button" id="btn-edit-userdatails">Profile Settings</button>
+        </div>
+        <div class="col-md-2 cl">
+            <button class="btn btn-outline-light btn-block" type="button" id="btn-returnh">Return</button>
+        </div>
+    </div>
+    <div class="row" id="usercarview">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-1"><h4 style="font-family: 'Open Sans Condensed', sans-serif; margin-top: 60px;">Sort By :</h4></div>
+            <div class="col-md-9" style="margin-top: 20px;">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-2">
+                            <label>No.Of Passengers</label>
+                            <input type="text" class="form-control" id="scpass">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label>Transmission Type</label>
+                            <select class="form-control" id="sctrans">
+                                <option>Auto</option>
+                                <option>Mannual</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label>Car Type</label>
+                            <select class="form-control" id="sctype">
+                                <option>Luxury</option>
+                                <option>Premium</option>
+                                <option>General</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label>Fuel Type</label>
+                            <select class="form-control" id="scfuel">
+                                <option>Petrol</option>
+                                <option>Disel</option>
+                                <option>Electric</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <button class="btn btn-outline-danger btn-block" type="button" id="btn-sortc" style="margin-top: 30px;">Search</button>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <button class="btn btn-outline-dark btn-block" type="button" id="btn-allc" style="margin-top: 30px;">All Cars</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <hr>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-2"></div>
+            <div class="col-md-9">
+                <section id="viewCarsReg">
+                    <div id="test2"></div>
+                </section>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+    <div class="row" id="userSettings">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <form>
+                    <div class="form-row" style="margin-top: 40px;">
+                        <div class="form-group col-md-6">
+                            <label>Identity Card No</label>
+                            <input type="text" class="form-control" id="settingsuid">
+                            <small class="form-text text-muted">We'll never share your identity with anyone else.</small>
+                        </div>
+                        <div class="custom-file col-md-6 form-group" style="margin-top: 32px;">
+                            <input type="file" class="custom-file-input" id="settingsidcopy">
+                            <label class="custom-file-label" for="settingsidcopy">Attach a copy of your id</label>
+                        </div>
+                    </div>
+                    <div class="form-row" >
+                        <div class="form-group col-md-6">
+                            <label>Lisence No</label>
+                            <input type="text" class="form-control" id="settingslisence">
+                            <small class="form-text text-muted">We'll never share your lisence with anyone else.</small>
+                        </div>
+                        <div class="custom-file col-md-6 form-group" style="margin-top: 32px;">
+                            <input type="file" class="custom-file-input" id="settingslisencecopy">
+                            <label class="custom-file-label" for="settingslisencecopy">Attach a copy of your lisence</label>
+                        </div>
+                    </div>
+                    <div class="form-row" >
+                        <div class="form-group col-md-4">
+                            <label>Full Name</label>
+                            <input type="text" class="form-control" id="settingsuname">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Contact</label>
+                            <input type="text" class="form-control" id="settingsucontact">
+                            <small class="form-text text-muted">We'll never share your contact with anyone else.</small>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>E-Mail</label>
+                            <input type="email" class="form-control" id="settingsuemail">
+                            <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                    </div>
+                    <div class="form-row" >
+                        <div class="form-group col-md-3">
+                            <label>UserName</label>
+                            <input type="text" class="form-control" id="settingsuusername">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Old Password</label>
+                            <input type="password" class="form-control" id="settingsuoldpass">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>New Password</label>
+                            <input type="password" class="form-control" id="settingsunewpass">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Confirm Password</label>
+                            <input type="password" class="form-control" id="settingsuconpass">
+                        </div>
+                    </div>
+                    <div class="form-row" style="margin-top: 20px;">
+                        <div class="form-group col-md-3">
+                            <button class="btn btn-outline-secondary btn-block" type="reset">Reset</button>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <button class="btn btn-outline-dark btn-block" type="button" id="btn-user-update">Update Details</button>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <button class="btn btn-outline-danger btn-block" type="button" id="btn-user-delete">Delete My Account</button>
+                        </div>
+                        <div class="form-group col-md-3"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</section>
+<!-- Request Model Start -->
+
+    <div id="requestModel"></div>
+
+<!-- Request Model Ends  -->
+<!-- Request Delete Model Start-->
+<div id="requestDModel"></div>
+<!-- Request delete model end-->
+<!-- Waiver Model Starts -->
+<div class="modal fade" id="waiverModal" tabindex="-1" aria-labelledby="waiverModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="waiverModalLabel" style="font-family: 'Open Sans Condensed', sans-serif;"><b>Waiver Prices</b></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h4 style="font-family: 'Open Sans Condensed', sans-serif;">Generel Cars = 10,000/=</h4>
+                <h4 style="font-family: 'Open Sans Condensed', sans-serif;">Premium Cars = 15,000/=</h4>
+                <h4 style="font-family: 'Open Sans Condensed', sans-serif;">Luxury Cars = 20,000/=</h4>
+            </div>
+            <div class="modal-footer">
+                <h5 style="font-family: 'Open Sans Condensed', sans-serif;"><b>Please pay the waiver to our bank account and upload the slip when making an request.</b></h5>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Waiver Model Ends  -->
+<!-- ///////////////////////////////////  REGISTERED USER PAGE ENDS  ////////////////////////////////////////////////-->
+<!-- //////////////////////////////////////  DRIVER PAGE STARTS  ////////////////////////////////////////////////////-->
+<section class="container-fluid" id="driverPage">
+    <div class="row bg-dark">
+        <div class="col-md-1"></div>
+        <div class="col-md-3 cl">
+            <h2 style="font-family: 'Poiret One', cursive; color: lightgray"><b> Easy Cars Rental</b></h2>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2 cl">
+            <button class="btn btn-outline-light btn-block" type="button" id="btn-driverschedule">View Schedule</button>
+        </div>
+        <div class="col-md-2 cl">
+            <button class="btn btn-outline-light btn-block" type="button" id="btn-editDriverLoginDetails">Edit Log In Details</button>
+        </div>
+        <div class="col-md-2 cl">
+            <button class="btn btn-outline-light btn-block" type="button" id="btn-returnhome">Return</button>
+        </div>
+    </div>
+    <div class="row" id="driverSchedule">
+        <div class="row" style="margin-top: 50px;">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">PickUpDate</th>
+                        <th scope="col">Car ID</th>
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Customer Contact</th>
+                        <th scope="col">Return Date</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tblDriverSchedule">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+    <div class="row" id="drivereditdetails" style="margin-top: 40px; margin-left: 20px;">
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+            <form>
+                <div class="form-group">
+                    <label >Driver ID</label>
+                    <input type="email" class="form-control" id="ddid">
+                </div>
+                <div class="form-group">
+                    <label>User Name</label>
+                    <input type="text" class="form-control" id="ddusername">
+                </div>
+                <div class="form-group">
+                    <label>Old Password</label>
+                    <input type="password" class="form-control" id="ddoldpass">
+                </div>
+                <div class="form-group">
+                    <label>New Password</label>
+                    <input type="password" class="form-control" id="ddnewpass">
+                </div>
+                <div class="form-group">
+                    <label>Confirm New Password</label>
+                    <input type="password" class="form-control" id="ddconpass">
+                </div>
+                <button type="reset" class="btn btn-outline-danger">Reset</button>
+                <button type="button" class="btn btn-outline-dark" id="drivereditdetail">Submit</button>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</section>
+<!-- //////////////////////////////////////  DRIVER PAGE ENDS  //////////////////////////////////////////////////////-->
+<script>
+
+</script>
+<script src="assests/lib/jquery-3.5.1.min.js"></script>
+<script src="assests/lib/js/bootstrap.min.js"></script>
+<script src="assests/controller/navigationController.js"></script>
+<script src="assests/controller/BackEndControllers/LoginControllers/AdminLoginController.js"></script>
+<script src="assests/controller/BackEndControllers/LoginControllers/UserLoginController.js"></script>
+<script src="assests/controller/BackEndControllers/LoginControllers/DriverLogin.js"></script>
+<script src="assests/controller/BackEndControllers/DriverController.js"></script>
+<script src="assests/controller/BackEndControllers/UserController.js"></script>
+<script src="assests/controller/BackEndControllers/VehicleController.js"></script>
+<script src="assests/controller/BackEndControllers/CrdLoaderController.js"></script>
+<script src="assests/controller/BackEndControllers/CrdLoaderRegisteredController.js"></script>
+<script src="assests/controller/BackEndControllers/RequestController.js"></script>
+</body>
+</html>
